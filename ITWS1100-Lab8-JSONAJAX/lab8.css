@@ -1,5 +1,16 @@
 
 
+
+#listBlock {
+   max-width: 900px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: white;
+   border-radius: 10px;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
 #listOutput {
     
     list-style-type: none;
@@ -8,7 +19,8 @@
 }
 
 #listOutput li{
-     background-color: white;
+    list-style: none;
+     background-color: orange;
    border: 2px solid #ddd;
    border-radius: 8px;
    padding: 15px;

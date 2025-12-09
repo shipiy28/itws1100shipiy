@@ -13,7 +13,7 @@ $(document).ready(function() {
 				
        		output += '<li><a href="' + item.link + '">'; 
         	output += item.name;
-        	output += '</a><a>' + item.description + '</a></li>';
+        	output += '</a><a>: ' + item.description + '</a></li>';
       	});
 
       	output += "</ul>";
