@@ -30,6 +30,7 @@ if ($db->connect_error) {
    echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
 } else {
    $dbOk = true;
+   echo "<script>alert('db works');</script>";
 }
 
 // Now let's process our form:
@@ -84,7 +85,6 @@ if ($havePost) {
       echo '  });';
       echo '</script>';
    } else {
-      echo "<script>alert('test1');</script>";
       if ($dbOk) {
          echo "<script>alert('test2');</script>";
          // Let's trim the input for inserting into mysql
