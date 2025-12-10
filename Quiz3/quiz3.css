@@ -1,57 +1,104 @@
-/* CSS made by AI in order to make it easier to look at and work with*/    
-    :root{
-      --bg:#f4f6f8;
-      --card:#ffffff;
-      --accent:#0a66c2;
-      --text:#222;
-    }
-    html,body{height:100%;margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);}
-    .page{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:2rem;
-      gap:2rem;
-    }
-    .card{
-      background:var(--card);
-      width:100%;
-      max-width:800px;
-      padding:2rem;
-      border-radius:12px;
-      box-shadow:0 8px 30px rgba(18,38,63,0.08);
-    }
-    h1{margin:0 0 1rem;font-size:1.6rem;}
-    form{display:grid;gap:0.75rem;}
-    label{display:block;font-weight:600;font-size:0.95rem;}
-    input[type="text"],
-    input[type="email"],
-    textarea{
-      width:100%;
-      box-sizing:border-box;
-      padding:0.9rem 0.85rem;
-      font-size:1.05rem;
-      border:1px solid #d7dbe0;
-      border-radius:8px;
-      background:#fff;
-      resize:vertical;
-      min-height:44px;
-    }
-    textarea{min-height:140px;line-height:1.45;}
-    .row{display:flex;gap:0.75rem;}
-    .small{flex:1;}
-    .actions{display:flex;justify-content:flex-end;margin-top:0.5rem;}
-    button{
-      background:var(--accent);
-      color:#fff;
-      border:none;
-      padding:0.8rem 1.1rem;
-      font-size:1rem;
-      border-radius:8px;
-      cursor:pointer;
-    }
-    @media (max-width:520px){
-      .card{padding:1rem;border-radius:10px;}
-      h1{font-size:1.25rem;}
-    }
+/* CSS made by AI in order to make it easier to look at and work with */
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --accent: #0a66c2;
+  --text: #222;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.card {
+  background: var(--card);
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(18, 38, 63, 0.08);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.9rem 0.85rem;
+  font-size: 1.05rem;
+  border: 1px solid #d7dbe0;
+  border-radius: 8px;
+  background: #fff;
+  resize: vertical;
+  min-height: 44px;
+}
+
+textarea {
+  min-height: 140px;
+  line-height: 1.45;
+}
+
+.row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.small {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+}

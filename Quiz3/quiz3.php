@@ -8,32 +8,32 @@ $DB_NAME = $GLOBALS['DB_NAME'];
 
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 if ($mysqli->connect_error) {
-    http_response_code(500);
-    exit('Database connection error');
+  http_response_code(500);
+  exit('Database connection error');
 }
 
 // Handle GET request - fetch all comments
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $stmt = $mysqli->prepare("SELECT visitorName, emailAddress, commentText, timestamp FROM siteComments ORDER BY primarykey DESC");
-    if (!$stmt) {
-        http_response_code(500);
-        exit('Prepare failed');
-    }
-    
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $comments = [];
-    
-    while ($row = $result->fetch_assoc()) {
-        $comments[] = $row;
-    }
-    
-    header('Content-Type: application/json');
-    echo json_encode($comments);
-    
-    $stmt->close();
-    $mysqli->close();
-    exit;
+  $stmt = $mysqli->prepare("SELECT visitorName, emailAddress, commentText, timestamp FROM siteComments ORDER BY primarykey DESC");
+  if (!$stmt) {
+    http_response_code(500);
+    exit('Prepare failed');
+  }
+  
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $comments = [];
+  
+  while ($row = $result->fetch_assoc()) {
+    $comments[] = $row;
+  }
+  
+  header('Content-Type: application/json');
+  echo json_encode($comments);
+  
+  $stmt->close();
+  $mysqli->close();
+  exit;
 }
 
 // Handle POST request - submit new comment
@@ -43,23 +43,23 @@ $commentText = trim($_POST['commentText'] ?? '');
 
 // basic validation
 if ($visitorName === '' || $emailAddress === '' || $commentText === '' || !filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    exit('Invalid input');
+  http_response_code(400);
+  exit('Invalid input');
 }
 
 // prepared statement to avoid SQL injection
 $stmt = $mysqli->prepare("INSERT INTO siteComments (visitorName, emailAddress, commentText, status) VALUES (?, ?, ?, 'pending')");
 if (!$stmt) {
-    http_response_code(500);
-    exit('Prepare failed');
+  http_response_code(500);
+  exit('Prepare failed');
 }
 $stmt->bind_param('sss', $visitorName, $emailAddress, $commentText);
 
 if ($stmt->execute()) {
-    echo 'Comment submitted successfully';
+  echo 'Comment submitted successfully';
 } else {
-    http_response_code(500);
-    echo 'Database error: ' . $mysqli->error;
+  http_response_code(500);
+  echo 'Database error: ' . $mysqli->error;
 }
 
 $stmt->close();

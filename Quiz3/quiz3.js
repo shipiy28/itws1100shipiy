@@ -56,8 +56,8 @@ async function loadComments() {
 
 // Validation function
 function validateForm() {
-    const visitorName = document.getElementById('visitorName').value.trim();
-    const emailAddress = document.getElementById('emailAddress').value.trim();
+  const visitorName = document.getElementById('visitorName').value.trim();
+  const emailAddress = document.getElementById('emailAddress').value.trim();
   const commentText = document.getElementById('commentText').value.trim();
   
   // Check if fields are empty
@@ -69,6 +69,12 @@ function validateForm() {
   }
   if (!commentText) {
     return { valid: false, error: 'Comment is required.' };
+  }
+  
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailAddress)) {
+    return { valid: false, error: 'Please enter a valid email address.' };
   }
   
   return { valid: true };
