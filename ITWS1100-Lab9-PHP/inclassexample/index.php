@@ -70,7 +70,7 @@ if ($havePost) {
       if ($focusId == '') $focusId = '#dob';
    }
    if (!$dobOk) {
-      $errors .= '<li>Enter a valid date in yyyy-mm-dd format test2</li>';
+      $errors .= '<li>Enter a valid date in yyyy-mm-dd format</li>';
       if ($focusId == '') $focusId = '#dob';
    }
 
@@ -100,7 +100,7 @@ if ($havePost) {
          $statement->bind_param("sss", $lastNameForDb, $firstNamesForDb, $dobForDb);
          // make it so:
          $statement->execute();
-
+         alert("test");
          // give the user some feedback
          echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' actor added to database.</h4>';
          echo $firstNames . ' ' . $lastName . ', born ' . $dob . '</div>';
