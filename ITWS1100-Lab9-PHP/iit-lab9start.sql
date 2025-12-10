@@ -10,7 +10,7 @@ CREATE TABLE `actors` (
    `firstNames` int(10) unsigned NOT NULL AUTO_INCREMENT,
    `lastname` varchar(100) NOT NULL,
    `dob` char(4) DEFAULT NULL,
-   PRIMARY KEY (`movieid`)
+   PRIMARY KEY (`actorid`)
 );
 
 -- insert data into the tables
