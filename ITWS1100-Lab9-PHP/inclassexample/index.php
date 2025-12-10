@@ -84,7 +84,9 @@ if ($havePost) {
       echo '  });';
       echo '</script>';
    } else {
+      alert("test");
       if ($dbOk) {
+         alert("test2");
          // Let's trim the input for inserting into mysql
          // Note that aside from trimming, we'll do no further escaping because we
          // use prepared statements to put these values in the database.
@@ -100,7 +102,7 @@ if ($havePost) {
          $statement->bind_param("sss", $lastNameForDb, $firstNamesForDb, $dobForDb);
          // make it so:
          $statement->execute();
-         alert("test");
+         
          // give the user some feedback
          echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' actor added to database.</h4>';
          echo $firstNames . ' ' . $lastName . ', born ' . $dob . '</div>';
