@@ -1,4 +1,4 @@
-// Fetch and display comments from database
+// Load comments function, made by AI
 async function loadComments() {
   try {
     const response = await fetch('quiz3.php');
@@ -15,9 +15,11 @@ async function loadComments() {
     
     commentsList.innerHTML = '';
     comments.forEach(comment => {
+      //Creates a div for each comment
       const commentDiv = document.createElement('div');
       commentDiv.style.cssText = 'margin-bottom:1.5rem; padding:1rem; background:#f8f9fa; border-radius:8px; border-left:4px solid #0a66c2;';
       
+      // Creates name, email, and timestamp stylized
       const nameEl = document.createElement('strong');
       nameEl.textContent = comment.visitorName;
       nameEl.style.color = '#0a66c2';
@@ -40,6 +42,7 @@ async function loadComments() {
       textEl.textContent = comment.commentText;
       textEl.style.marginTop = '0.5rem';
       
+      // Appends the stylized elements to the created div
       commentDiv.appendChild(nameEl);
       commentDiv.appendChild(emailEl);
       commentDiv.appendChild(timeEl);
