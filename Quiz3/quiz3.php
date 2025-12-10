@@ -14,7 +14,7 @@ if ($mysqli->connect_error) {
 
 // Handle GET request - fetch all comments
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $stmt = $mysqli->prepare("SELECT visitorName, commentText FROM siteComments ORDER BY id DESC");
+    $stmt = $mysqli->prepare("SELECT visitorName, commentText FROM siteComments ORDER BY primarykey ASC");
     if (!$stmt) {
         http_response_code(500);
         exit('Prepare failed');
