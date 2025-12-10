@@ -24,4 +24,4 @@ VALUES (1, "Elizabeth", "1998"),
       "The Lord of the Rings: The Fellowship of the Ring",
       "2001"
    ),
-   (5, "Up in the Air", "2009");
+   (5, "Up in the Air", "2009"), (6, "Testmovie", "2006");
