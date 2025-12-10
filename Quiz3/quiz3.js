@@ -21,12 +21,28 @@ async function loadComments() {
       const nameEl = document.createElement('strong');
       nameEl.textContent = comment.visitorName;
       nameEl.style.color = '#0a66c2';
+      nameEl.style.fontSize = '1.1rem';
+      
+      const emailEl = document.createElement('p');
+      emailEl.textContent = comment.emailAddress;
+      emailEl.style.margin = '0.25rem 0';
+      emailEl.style.fontSize = '0.9rem';
+      emailEl.style.color = '#666';
+      
+      const timeEl = document.createElement('p');
+      const date = new Date(comment.timestamp);
+      timeEl.textContent = date.toLocaleString();
+      timeEl.style.margin = '0.25rem 0 0.75rem 0';
+      timeEl.style.fontSize = '0.85rem';
+      timeEl.style.color = '#999';
       
       const textEl = document.createElement('p');
       textEl.textContent = comment.commentText;
       textEl.style.marginTop = '0.5rem';
       
       commentDiv.appendChild(nameEl);
+      commentDiv.appendChild(emailEl);
+      commentDiv.appendChild(timeEl);
       commentDiv.appendChild(textEl);
       commentsList.appendChild(commentDiv);
     });
