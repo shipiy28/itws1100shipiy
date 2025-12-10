@@ -84,9 +84,9 @@ if ($havePost) {
       echo '  });';
       echo '</script>';
    } else {
-      echo "<script>alert('test1');</script>"
+      echo "<script>alert('test1');</script>";
       if ($dbOk) {
-         echo "<script>alert('test2');</script>"
+         echo "<script>alert('test2');</script>";
          // Let's trim the input for inserting into mysql
          // Note that aside from trimming, we'll do no further escaping because we
          // use prepared statements to put these values in the database.
