@@ -1,3 +1,23 @@
+// Validation function
+function validateForm() {
+    const visitorName = document.getElementById('visitorName').value.trim();
+    const emailAddress = document.getElementById('emailAddress').value.trim();
+  const commentText = document.getElementById('commentText').value.trim();
+  
+  // Check if fields are empty
+  if (!visitorName) {
+    return { valid: false, error: 'Visitor name is required.' };
+  }
+  if (!emailAddress) {
+    return { valid: false, error: 'Email address is required.' };
+  }
+  if (!commentText) {
+    return { valid: false, error: 'Comment is required.' };
+  }
+  
+  return { valid: true };
+}
+
 document.getElementById('commentForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
@@ -6,6 +26,17 @@ document.getElementById('commentForm').addEventListener('submit', async function
   
   // Get form data
   const formData = new FormData(form);
+  
+  // Validate form
+  const validation = validateForm(formData);
+  if (!validation.valid) {
+    messageDiv.style.display = 'block';
+    messageDiv.textContent = validation.error;
+    messageDiv.style.backgroundColor = '#fff3cd';
+    messageDiv.style.color = '#856404';
+    messageDiv.style.borderLeft = '4px solid #ffc107';
+    return;
+  }
   
   try {
     // Send the form data to quiz3.php
