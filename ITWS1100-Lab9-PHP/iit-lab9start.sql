@@ -7,7 +7,8 @@ CREATE TABLE `movies` (
 );
 
 CREATE TABLE `actors` (
-   `firstNames` int(10) unsigned NOT NULL AUTO_INCREMENT,
+   `actorid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+   `firstNames` varchar(100) NOT NULL,
    `lastname` varchar(100) NOT NULL,
    `dob` char(4) DEFAULT NULL,
    PRIMARY KEY (`actorid`)
