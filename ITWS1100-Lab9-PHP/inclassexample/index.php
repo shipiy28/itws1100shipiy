@@ -70,7 +70,7 @@ if ($havePost) {
       if ($focusId == '') $focusId = '#dob';
    }
    if (!$dobOk) {
-      $errors .= '<li>Enter a valid date in yyyy-mm-dd format</li>';
+      $errors .= '<li>Enter a valid date in yyyy-mm-dd format test2</li>';
       if ($focusId == '') $focusId = '#dob';
    }
 
