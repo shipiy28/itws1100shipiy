@@ -1,0 +1,8 @@
+"There is an error when trying to submit the form, do you know what is causing it?"-
+Github Copilot found several misnamed variables.
+
+"The comments don't seem to be appearing, do you know what the issue is?"-
+AI couldn't find the issue, which was that the syntax of the prepared select statement was wrong
+
+"Could you style this form for me"-
+AI made a nicely styled form that saved me a lot of time.

@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageDiv.style.borderLeft = '4px solid #ffc107';
         return;
       }
-      
+// Updates after a post attempt is successful or unsuccessful, AI did formatting
       try {
         // Send the form data to quiz3.php
         const response = await fetch('quiz3.php', {
