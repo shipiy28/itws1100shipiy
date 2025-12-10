@@ -1,16 +1,18 @@
 -- create the tables for our movies
-CREATE TABLE `movies` (
+DROP TABLE IF EXISTS movies;
+CREATE TABLE IF NOT EXISTS `movies` (
    `movieid` int(10) unsigned NOT NULL AUTO_INCREMENT,
    `title` varchar(100) NOT NULL,
    `year` char(4) DEFAULT NULL,
    PRIMARY KEY (`movieid`)
 );
 
-CREATE TABLE `actors` (
+DROP TABLE IF EXISTS actors;
+CREATE TABLE IF NOT EXISTS `actors` (
    `actorid` int(10) unsigned NOT NULL AUTO_INCREMENT,
    `firstNames` varchar(100) NOT NULL,
    `lastname` varchar(100) NOT NULL,
-   `dob` char(4) DEFAULT NULL,
+   `dob` char(10) DEFAULT NULL,
    PRIMARY KEY (`actorid`)
 );
 
@@ -25,3 +27,6 @@ VALUES (1, "Elizabeth", "1998"),
       "2001"
    ),
    (5, "Up in the Air", "2009"), (6, "Testmovie", "2006");
+
+INSERT INTO actors
+VALUES (1, "Dwayne", "Johnson", "1999-09-14");
