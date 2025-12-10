@@ -1,6 +1,11 @@
 <?php
 include('quiz3config.php');
 
+$DB_HOST = $GLOBALS['DB_HOST'];
+$DB_USER = $GLOBALS['DB_USERNAME'];
+$DB_PASS = $GLOBALS['DB_PASSWORD'];
+$DB_NAME = $GLOBALS['DB_NAME'];
+
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 if ($mysqli->connect_error) {
     http_response_code(500);
