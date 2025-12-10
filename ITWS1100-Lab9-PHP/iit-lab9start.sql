@@ -5,6 +5,14 @@ CREATE TABLE `movies` (
    `year` char(4) DEFAULT NULL,
    PRIMARY KEY (`movieid`)
 );
+
+CREATE TABLE `actors` (
+   `firstNames` int(10) unsigned NOT NULL AUTO_INCREMENT,
+   `lastname` varchar(100) NOT NULL,
+   `dob` char(4) DEFAULT NULL,
+   PRIMARY KEY (`movieid`)
+);
+
 -- insert data into the tables
 INSERT INTO movies
 VALUES (1, "Elizabeth", "1998"),
