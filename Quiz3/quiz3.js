@@ -1,3 +1,46 @@
+// Fetch and display comments from database
+async function loadComments() {
+  try {
+    const response = await fetch('quiz3.php');
+    const comments = await response.json();
+    
+    const commentsList = document.getElementById('commentsList');
+    const noComments = document.getElementById('noComments');
+    
+    if (comments.length === 0) {
+      commentsList.style.display = 'none';
+      noComments.style.display = 'block';
+      return;
+    }
+    
+    commentsList.innerHTML = '';
+    comments.forEach(comment => {
+      const commentDiv = document.createElement('div');
+      commentDiv.style.cssText = 'margin-bottom:1.5rem; padding:1rem; background:#f8f9fa; border-radius:8px; border-left:4px solid #0a66c2;';
+      
+      const nameEl = document.createElement('strong');
+      nameEl.textContent = comment.visitorName;
+      nameEl.style.color = '#0a66c2';
+      
+      const textEl = document.createElement('p');
+      textEl.textContent = comment.commentText;
+      textEl.style.marginTop = '0.5rem';
+      
+      commentDiv.appendChild(nameEl);
+      commentDiv.appendChild(textEl);
+      commentsList.appendChild(commentDiv);
+    });
+    
+    commentsList.style.display = 'block';
+    noComments.style.display = 'none';
+  } catch (error) {
+    console.error('Error loading comments:', error);
+  }
+}
+
+// Load comments on page load
+document.addEventListener('DOMContentLoaded', loadComments);
+
 // Validation function
 function validateForm() {
     const visitorName = document.getElementById('visitorName').value.trim();
@@ -28,6 +71,7 @@ document.getElementById('commentForm').addEventListener('submit', async function
   const formData = new FormData(form);
   
   // Validate form
+// Styling was helped by AI
   const validation = validateForm(formData);
   if (!validation.valid) {
     messageDiv.style.display = 'block';
@@ -54,6 +98,8 @@ document.getElementById('commentForm').addEventListener('submit', async function
       messageDiv.style.color = '#155724';
       messageDiv.style.borderLeft = '4px solid #28a745';
       form.reset();
+      // Reload comments after successful submission
+      loadComments();
     } else {
       messageDiv.textContent = 'Error: ' + response.statusText;
       messageDiv.style.backgroundColor = '#f8d7da';

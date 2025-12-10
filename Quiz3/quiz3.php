@@ -12,6 +12,31 @@ if ($mysqli->connect_error) {
     exit('Database connection error');
 }
 
+// Handle GET request - fetch approved comments
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $stmt = $mysqli->prepare("SELECT visitorName, commentText FROM siteComments WHERE status = 'approved' ORDER BY id DESC");
+    if (!$stmt) {
+        http_response_code(500);
+        exit('Prepare failed');
+    }
+    
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $comments = [];
+    
+    while ($row = $result->fetch_assoc()) {
+        $comments[] = $row;
+    }
+    
+    header('Content-Type: application/json');
+    echo json_encode($comments);
+    
+    $stmt->close();
+    $mysqli->close();
+    exit;
+}
+
+// Handle POST request - submit new comment
 $visitorName = trim($_POST['visitorName'] ?? '');
 $emailAddress = trim($_POST['emailAddress'] ?? '');
 $commentText = trim($_POST['commentText'] ?? '');
@@ -39,5 +64,4 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $mysqli->close();
-// ...existing code...
 ?>

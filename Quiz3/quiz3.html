@@ -12,7 +12,7 @@
     <section class="card" aria-labelledby="form-title">
       <h1 id="form-title">Leave a Comment</h1>
       <div id="message" style="display:none; margin-bottom:1rem; padding:1rem; border-radius:8px; text-align:center;"></div>
-      <form id="commentForm" novalidate>
+      <form id="commentForm" onsubmit="return validateForm();">
         <div class="row">
           <div class="small">
             <label for="visitorName">Visitor name</label>
@@ -29,6 +29,16 @@
           <button type="submit">Submit Comment</button>
         </div>
       </form>
+    </section>
+    
+    <section class="card" aria-labelledby="comments-title">
+      <h2 id="comments-title">Comments</h2>
+      <div id="commentsList" style="display:none;">
+        <!-- Comments will be loaded here -->
+      </div>
+      <div id="noComments" style="text-align:center; color:#666; padding:2rem;">
+        No approved comments yet.
+      </div>
     </section>
   </main>
   <script src="quiz3.js"></script>
