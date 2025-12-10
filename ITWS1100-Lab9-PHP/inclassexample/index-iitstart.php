@@ -69,7 +69,7 @@
       if ($focusId == '') $focusId = '#dob';
     }
     if (!$dobOk) {
-      $errors .= '<li>Enter a valid date in yyyy-mm-dd format</li>';
+      $errors .= '<li>Enter a valid date in yyyy-mm-dd format test </li>';
       if ($focusId == '') $focusId = '#dob';
     }
 
@@ -82,6 +82,7 @@
       echo '    $("' . $focusId . '").focus();';
       echo '  });';
       echo '</script>';
+      alert("test");
     } else {
       if ($dbOk) {
         // Let's trim the input for inserting into mysql
@@ -99,7 +100,7 @@
         $statement->bind_param("sss",$lastNameForDb,$firstNamesForDb,$dobForDb);
         // make it so:
         $statement->execute();
-        alert("test");
+        
         // give the user some feedback
         echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' actor added to database.</h4>';
         echo $firstNames . ' ' . $lastName . ', born ' . $dob . '</div>';
