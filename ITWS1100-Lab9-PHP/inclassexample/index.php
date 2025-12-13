@@ -30,7 +30,7 @@ if ($db->connect_error) {
    echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
 } else {
    $dbOk = true;
-   echo "<script>alert('db works');</script>";
+   
 }
 
 // Now let's process our form:
@@ -86,7 +86,7 @@ if ($havePost) {
       echo '</script>';
    } else {
       if ($dbOk) {
-         echo "<script>alert('test2');</script>";
+         
          // Let's trim the input for inserting into mysql
          // Note that aside from trimming, we'll do no further escaping because we
          // use prepared statements to put these values in the database.

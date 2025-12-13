@@ -1,5 +1,5 @@
 -- create the tables for our movies
-DROP TABLE IF EXISTS movies;
+
 CREATE TABLE IF NOT EXISTS `movies` (
    `movieid` int(10) unsigned NOT NULL AUTO_INCREMENT,
    `title` varchar(100) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
    PRIMARY KEY (`movieid`)
 );
 
-DROP TABLE IF EXISTS actors;
+
 CREATE TABLE IF NOT EXISTS `actors` (
    `actorid` int(10) unsigned NOT NULL AUTO_INCREMENT,
    `firstNames` varchar(100) NOT NULL,
